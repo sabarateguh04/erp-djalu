@@ -1,0 +1,8 @@
+[
+  { "bulan": "Jan", "progress": 5 },
+  { "bulan": "Feb", "progress": 32 },
+  { "bulan": "Mar", "progress": 45 },
+  { "bulan": "Apr", "progress": 55 },
+  { "bulan": "Mei", "progress": 67 },
+  { "bulan": "Jun", "progress": 88 }
+]

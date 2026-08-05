@@ -1,0 +1,22 @@
+[
+  {
+    "id": "sm-smartcity-final",
+    "name": "SM-SmartCity",
+    "version": "v2.1",
+    "icon": "box",
+    "color": "green",
+    "releaseDate": "2026-01-18",
+    "releaseDateLabel": "18 Jan 2026",
+    "note": "Dirilis pada 18 Januari 2026"
+  },
+  {
+    "id": "djalu-erp-final",
+    "name": "Djalu-ERP",
+    "version": "v1.0",
+    "icon": "cube",
+    "color": "blue",
+    "releaseDate": "2026-03-30",
+    "releaseDateLabel": "30 Mar 2026",
+    "note": "Dirilis pada 30 Maret 2026"
+  }
+]

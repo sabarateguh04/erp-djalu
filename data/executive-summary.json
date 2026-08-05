@@ -1,0 +1,18 @@
+{
+  "updatedLabel": "Diperbarui 5 menit lalu",
+  "enterpriseHealth": { "value": 96, "label": "Excellent" },
+  "stats": [
+    { "key": "produk", "value": 28, "label": "Produk", "sub": "Total seluruh produk", "icon": "box", "color": "purple" },
+    { "key": "project", "value": 17, "label": "Project Aktif", "sub": "Sedang dalam pengembangan", "icon": "folder", "color": "blue" },
+    { "key": "karyawan", "value": 325, "label": "Karyawan", "sub": "Total seluruh karyawan", "icon": "users", "color": "green" },
+    { "key": "progress", "value": "76%", "label": "Overall Progress", "sub": "Rata-rata seluruh produk", "icon": "trending", "color": "orange" },
+    { "key": "release", "value": 1, "label": "Release Minggu Ini", "sub": "Siap untuk dirilis", "icon": "rocket", "color": "indigo" }
+  ],
+  "summaryBoxes": [
+    { "key": "onTrack", "value": 8, "label": "On Track", "note": "Tepat waktu", "color": "green" },
+    { "key": "warning", "value": 3, "label": "Warning", "note": "Perlu perhatian", "color": "orange" },
+    { "key": "delay", "value": 1, "label": "Delay", "note": "Terlambat", "color": "red" },
+    { "key": "release", "value": 1, "label": "Release Minggu Ini", "note": "Siap dirilis", "color": "indigo" }
+  ],
+  "overallDevelopment": { "value": 76, "label": "Completed" }
+}

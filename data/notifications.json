@@ -1,0 +1,6 @@
+[
+  { "id": 1, "icon": "alert", "color": "red", "text": "3 Project terlambat" },
+  { "id": 2, "icon": "clock", "color": "orange", "text": "5 Approval menunggu" },
+  { "id": 3, "icon": "rocket", "color": "blue", "text": "1 Release minggu ini" },
+  { "id": 4, "icon": "flag", "color": "pink", "text": "8 Task overdue" }
+]
