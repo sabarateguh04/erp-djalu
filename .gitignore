@@ -2,3 +2,10 @@ node_modules/
 dist/
 .env
 *.log
+
+# Runtime-generated auth/audit state — auto-seeded by the backend on first
+# boot (see backend/src/lib/authStore.js, activityLogger.js). Contains a
+# password hash + live session tokens, and an audit log that grows
+# unbounded, so it doesn't belong in source control.
+data/auth/
+data/system/

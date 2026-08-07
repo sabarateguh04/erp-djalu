@@ -1,6 +1,42 @@
 [
-  { "id": 1, "icon": "alert", "color": "red", "text": "3 Project terlambat" },
-  { "id": 2, "icon": "clock", "color": "orange", "text": "5 Approval menunggu" },
-  { "id": 3, "icon": "rocket", "color": "blue", "text": "1 Release minggu ini" },
-  { "id": 4, "icon": "flag", "color": "pink", "text": "8 Task overdue" }
+  {
+    "id": "1ea0102e-fce8-4935-a0d0-99788708a7fe",
+    "icon": "alert",
+    "color": "red",
+    "text": "3 Project terlambat",
+    "userId": null,
+    "sudahDibaca": false,
+    "link": null,
+    "tipe": "info"
+  },
+  {
+    "id": "9d6dfc69-eb4f-49bd-8fa6-acaa6b622da0",
+    "icon": "clock",
+    "color": "orange",
+    "text": "5 Approval menunggu",
+    "userId": null,
+    "sudahDibaca": false,
+    "link": null,
+    "tipe": "info"
+  },
+  {
+    "id": "79999cd4-16cf-4ec6-8380-b2e0db06c4fa",
+    "icon": "rocket",
+    "color": "blue",
+    "text": "1 Release minggu ini",
+    "userId": null,
+    "sudahDibaca": false,
+    "link": null,
+    "tipe": "info"
+  },
+  {
+    "id": "ffcdb933-e135-4425-928a-82335b079e56",
+    "icon": "flag",
+    "color": "pink",
+    "text": "8 Task overdue",
+    "userId": null,
+    "sudahDibaca": false,
+    "link": null,
+    "tipe": "info"
+  }
 ]

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "23aa0deb-3615-42d0-ba13-ed896f420af4",
+    "tanggal": "2026-08-05",
+    "nama": "teguh sabara",
+    "tipe": "Engineering",
+    "status": "Aktif",
+    "nilai": null,
+    "catatan": "yuhu",
+    "createdAt": "2026-08-05T22:57:38.148Z",
+    "updatedAt": "2026-08-05T22:57:38.148Z"
+  },
+  {
+    "id": "k-001",
+    "tanggal": "2026-07-20",
+    "nama": "Fajar R.",
+    "tipe": "Engineering",
+    "status": "Aktif",
+    "nilai": null,
+    "catatan": "Project Manager SM-SmartCity",
+    "createdAt": "2026-07-20T02:00:00.000Z",
+    "updatedAt": "2026-07-20T02:00:00.000Z"
+  },
+  {
+    "id": "k-002",
+    "tanggal": "2026-07-22",
+    "nama": "Dinda L.",
+    "tipe": "Product",
+    "status": "Aktif",
+    "nilai": null,
+    "catatan": "Project Manager Field-Ops",
+    "createdAt": "2026-07-22T02:00:00.000Z",
+    "updatedAt": "2026-07-22T02:00:00.000Z"
+  },
+  {
+    "id": "k-003",
+    "tanggal": "2026-07-25",
+    "nama": "Budi K.",
+    "tipe": "Operasional",
+    "status": "Cuti",
+    "nilai": null,
+    "catatan": "Cuti tahunan sampai 10 Agustus",
+    "createdAt": "2026-07-25T02:00:00.000Z",
+    "updatedAt": "2026-07-25T02:00:00.000Z"
+  }
+]
