@@ -19,24 +19,51 @@ erp-djalu/
 
 Butuh Node.js 20+.
 
-**Terminal 1 — backend (port 4000)**
+### Opsi A — satu port saja (disarankan, terutama di server)
+
+Backend nge-build frontend jadi file statis lalu ikut menyajikannya di port
+yang sama — jadi cuma ada **1 port** yang perlu dibuka/diakses, nggak perlu
+dua terminal atau khawatir soal proxy.
+
+```bash
+cd backend
+npm install
+npm run serve
+```
+
+Buka http://localhost:4001 (atau `$PORT` kalau di-set) — itu saja, frontend
+dan API sama-sama nyala di port itu. Setiap kali ada perubahan kode di
+`frontend/`, jalankan ulang `npm run serve` (atau `npm run build` di
+`frontend/` lalu restart backend) supaya build statisnya ke-update.
+
+### Opsi B — dua port terpisah (buat development aktif di frontend)
+
+Dipakai kalau lagi aktif ngedit UI dan mau hot-reload instan tanpa build
+ulang tiap ganti kode.
+
+**Terminal 1 — backend**
 ```bash
 cd backend
 npm install
 npm run dev
 ```
 
-**Terminal 2 — frontend (port 5173)**
+**Terminal 2 — frontend**
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Buka http://localhost:5173 — request ke `/api/*` otomatis di-proxy ke backend
-port 4000 (lihat `frontend/vite.config.js`). Semua halaman butuh login (lihat
-bagian **Auth & RBAC** di bawah) — akun Super Admin default dibuat otomatis
-saat backend pertama kali jalan.
+Buka URL yang ditampilkan Vite (default port 5173) — request ke `/api/*`
+otomatis di-proxy ke backend (lihat `frontend/vite.config.js`, sesuaikan
+`target`-nya kalau port backend kamu bukan default).
+
+---
+
+Port backend default `4001` (bisa diubah lewat env var `PORT`). Semua
+halaman butuh login (lihat bagian **Auth & RBAC** di bawah) — akun Super
+Admin default dibuat otomatis saat backend pertama kali jalan.
 
 ## Auth & RBAC
 

@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "dev": "node src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "build:frontend": "cd ../frontend && npm install && npm run build",
+    "serve": "npm run build:frontend && node src/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
