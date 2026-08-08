@@ -1,0 +1,14 @@
+[
+  {
+    "id": "6965148c-1f2b-47e6-b785-7ef482e5e909",
+    "karyawanId": "23aa0deb-3615-42d0-ba13-ed896f420af4",
+    "periode": "2026-08",
+    "gajiPokok": 1000000,
+    "tunjangan": 0,
+    "potongan": 0,
+    "totalGaji": 1000000,
+    "status": "Dibayar",
+    "createdAt": "2026-08-08T07:58:19.224Z",
+    "updatedAt": "2026-08-08T07:58:30.738Z"
+  }
+]

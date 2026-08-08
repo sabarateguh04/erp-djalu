@@ -1,5 +1,16 @@
 [
   {
+    "id": "375aa7a6-f575-4573-a2ec-0328b36b50ca",
+    "userId": "d0aeaa3b-3df4-4140-913e-23b8a52fd1b7",
+    "tipe": "info",
+    "text": "Payroll periode 2026-08 siap direview (1 karyawan)",
+    "link": "/hr/payroll",
+    "icon": "clock",
+    "color": "blue",
+    "sudahDibaca": true,
+    "createdAt": "2026-08-08T07:58:19.231Z"
+  },
+  {
     "id": "1ea0102e-fce8-4935-a0d0-99788708a7fe",
     "icon": "alert",
     "color": "red",

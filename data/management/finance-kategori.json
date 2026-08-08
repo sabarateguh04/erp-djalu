@@ -1,0 +1,32 @@
+[
+  {
+    "id": "9f34d9cc-01f1-4342-b0f2-b7ed1223af3d",
+    "nama": "Penjualan Produk",
+    "kelompok": "Pemasukan"
+  },
+  {
+    "id": "05bcfda1-5498-4672-ba1e-d627205afc24",
+    "nama": "Jasa",
+    "kelompok": "Pemasukan"
+  },
+  {
+    "id": "4cd343b7-3eb6-4a43-ba8c-d6441f3af700",
+    "nama": "Gaji",
+    "kelompok": "Pengeluaran"
+  },
+  {
+    "id": "2d4d8699-3866-454c-a858-c239882a32cc",
+    "nama": "Operasional",
+    "kelompok": "Pengeluaran"
+  },
+  {
+    "id": "364fa85e-3946-4a1b-8dde-0c550e952792",
+    "nama": "Sewa",
+    "kelompok": "Pengeluaran"
+  },
+  {
+    "id": "82262bf1-5b76-44a8-8a87-4d8fe523db00",
+    "nama": "Pemasaran",
+    "kelompok": "Pengeluaran"
+  }
+]
