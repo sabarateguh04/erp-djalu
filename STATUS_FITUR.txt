@@ -1,0 +1,183 @@
+====================================================================
+STATUS FITUR — ERP DJALU
+Acuan: BIG_SCOPE_DETAIL.md
+====================================================================
+
+LEGENDA
+-------
+[DINAMIS] = Nyambung ke backend/API beneran. Data disimpan di file JSON,
+            CRUD/aksi bisa dipakai sungguhan (tambah/edit/hapus/approve/dst),
+            dan dibatasi RBAC (permission per role).
+[STATIS]  = Tampil di UI tapi datanya hardcode/dummy, ATAU cuma placeholder
+            (menu ada, tapi belum ke halaman apa-apa / belum ada fungsi).
+[BELUM]   = Item di BIG_SCOPE_DETAIL.md yang sama sekali belum dikerjakan.
+
+
+====================================================================
+MODUL 0 — AUTH (Register, Login, Session, RBAC)
+====================================================================
+[DINAMIS] Register (dgn approval admin), Login, Logout
+[DINAMIS] Session token (7 hari) + auto-invalid kalau expired/user Nonaktif
+[DINAMIS] RBAC penuh: requireAuth + requirePermission di SEMUA endpoint
+[DINAMIS] Kelola User (/management/users) — approve, nonaktifkan, ubah role,
+          tambah user langsung, hapus (soft delete)
+[DINAMIS] Kelola Role (/management/roles) — CRUD role + checklist permission
+[DINAMIS] Profile saya (/profile) — ubah nama & password sendiri
+[BELUM]   Halaman "Lupa Password" (/forgot-password) — di doc statusnya
+          opsional/P2 ("hubungi admin"), belum dibuat sama sekali
+
+
+====================================================================
+MODUL 1 — DASHBOARD
+====================================================================
+[DINAMIS] Dashboard dibatasi permission "dashboard" (backend + sidebar)
+[STATIS]  Isi dashboard sendiri (Executive Summary, Trend Chart, Progress
+          Table, AI Recommendation, Next Release, Product Status Final,
+          Stat Cards) — semua baca dari file JSON statis (products.json,
+          trend.json, dst), TIDAK ada CRUD/nyambung ke modul transaksional
+          (bukan bagian scope modul manapun, memang dari awal cuma dummy
+          display dashboard)
+[BELUM]   Sapaan personalisasi "Selamat datang, {nama user login}" — ada
+          di doc sbg opsional, belum ditambahkan (masih judul statis
+          "Progres development produk")
+
+
+====================================================================
+MODUL 2-7 — KARYAWAN, ASET, PROJECT, FINANCE, SALES, OPERASIONAL
+====================================================================
+[DINAMIS] CRUD dasar semuanya (tambah/edit/hapus/cari) + snapshot harian
+[DINAMIS] Field tambahan Karyawan: nomorInduk, jabatan, tanggalMasuk,
+          tanggalKeluar, gajiPokok, userId, cabangId
+[DINAMIS] Field tambahan Aset: lokasi, penanggungJawab, tanggalPembelian,
+          masaGaransi, cabangId
+[DINAMIS] Field tambahan Project: tanggalMulai, tanggalSelesai, anggota,
+          budget
+[DINAMIS] Field tambahan Finance: kategoriId, metodePembayaran,
+          nomorReferensi, cabangId
+[DINAMIS] Field tambahan Sales: customerId, produkId (masih diisi manual/
+          teks bebas, BELUM auto-lookup ke data CRM/Produk asli)
+[DINAMIS] finance-kategori — API CRUD lengkap (GET/POST/PUT/DELETE)
+[STATIS]  Kelola Kategori Finance — BELUM ada halaman UI khusus buat
+          tambah/edit/hapus kategori; kategori cuma muncul sbg dropdown
+          pilihan di form Finance (isi awalnya dari seed default)
+
+
+====================================================================
+MODUL 8 — INVENTORY
+====================================================================
+[DINAMIS] Kelola Item (/inventory/items) — CRUD, stok otomatis dari movement
+[DINAMIS] Barang Masuk/Keluar (/inventory/movements) — validasi stok,
+          histori, badge stok menipis di sidebar
+[DINAMIS] Notifikasi otomatis kalau stok di bawah minimum
+[DINAMIS] Endpoint "Kartu Stok" per item (GET .../kartu-stok) — API-nya ada
+[STATIS]  Tapi BELUM ada tombol/halaman di UI buat lihat kartu stok itu —
+          endpoint-nya nganggur, cuma bisa dipanggil manual lewat API
+[STATIS]  lokasiGudang cuma field teks bebas — belum ada sistem multi-
+          gudang sungguhan (lihat catatan Modul 15)
+
+
+====================================================================
+MODUL 9 — PROCUREMENT
+====================================================================
+[DINAMIS] Vendor — CRUD penuh
+[DINAMIS] Purchase Order — Draft -> Submit -> Approve/Reject -> Terima
+          Barang, auto-generate nomor PO, approve dibatasi permission
+          "procurement:approve"
+[DINAMIS] Terima Barang otomatis bikin movement "Masuk" di Inventory
+
+
+====================================================================
+MODUL 10 — CRM
+====================================================================
+[DINAMIS] Customer — CRUD penuh
+[DINAMIS] Pipeline/Deal — tambah, hapus, ganti tahap
+[STATIS]  Tampilan Pipeline masih tabel + dropdown ganti tahap, BUKAN
+          kanban board drag-and-drop (di doc kanban itu "idealnya", tabel
+          sudah cukup buat versi awal — jadi ini simplifikasi resmi,
+          bukan bug)
+
+
+====================================================================
+MODUL 11 — PAYROLL & ABSENSI
+====================================================================
+[DINAMIS] Absensi — CRUD penuh
+[DINAMIS] Payroll — generate otomatis per periode dari karyawan aktif,
+          potongan Alpha otomatis, alur Draft -> Disetujui -> Dibayar
+[STATIS]  Rumus potongan Alpha = konstanta tetap di kode (gajiPokok / 22
+          hari kerja per hari Alpha) — di doc ini memang masih "perlu
+          diputuskan", belum ada UI buat admin atur rumusnya sendiri
+
+
+====================================================================
+MODUL 12 — REPORTING & EXPORT
+====================================================================
+[DINAMIS] Halaman /report — pilih modul + rentang tanggal, preview tabel,
+          export CSV — semua modul transaksional sudah bisa (karyawan,
+          aset, operasional, project, finance, sales, inventory-movements,
+          procurement-po, crm-pipeline, hr-attendance, hr-payroll)
+
+
+====================================================================
+MODUL 13 — ACTIVITY LOG
+====================================================================
+[DINAMIS] Semua aksi create/update/delete/login/logout/approve/reject di
+          SEMUA modul otomatis tercatat, bisa difilter per modul/tanggal
+          di /system-log
+
+
+====================================================================
+MODUL 14 — NOTIFIKASI & APPROVAL WORKFLOW
+====================================================================
+[DINAMIS] notifications.json sudah pakai skema baru (userId, sudahDibaca,
+          link, tipe)
+[DINAMIS] Bell icon di Topbar — data asli, badge jumlah belum dibaca, klik
+          buat tandai dibaca + pindah ke halaman terkait
+[DINAMIS] Notifikasi otomatis: stok menipis, PO menunggu approval (cuma ke
+          user yg punya permission procurement:approve), payroll siap
+          direview
+
+
+====================================================================
+MODUL 15 — MULTI-CABANG
+====================================================================
+[DINAMIS] Kelola Cabang (/management/cabang) — CRUD cabang
+[DINAMIS] Field cabangId di Karyawan, Aset, Finance, Inventory Item
+[DINAMIS] Dropdown "Semua Cabang / pilih cabang" di Topbar — beneran
+          nyaring tabel Karyawan/Aset/Finance/Inventory Item (bukan
+          dekorasi doang)
+[STATIS]  Dashboard utama (Executive Summary dkk) TIDAK ikut ke-filter
+          cabang — karena datanya emang statis/dummy, bukan agregat dari
+          data transaksional asli (lihat Modul 1)
+[STATIS]  cabangId di Project & Sales — BELUM ditambahkan (cuma yg
+          disebut eksplisit di doc: Karyawan/Aset/Inventory/Finance)
+
+
+====================================================================
+ELEMEN UI LAIN YANG MASIH STATIS / PLACEHOLDER
+====================================================================
+[STATIS]  Search bar di Topbar ("Cari produk, project, atau modul...")
+          — cuma kotak input, belum ada fungsi pencarian beneran
+[STATIS]  Menu "Produk > Final" dan "Produk > Progress" di sidebar — dua-
+          duanya cuma ngarah ke "/" (Dashboard), bukan halaman terpisah
+[STATIS]  Menu "AI Center" — placeholder, belum ada halaman sama sekali
+[STATIS]  Menu "Knowledge Base" — placeholder, belum ada halaman sama
+          sekali
+
+
+====================================================================
+RINGKASAN
+====================================================================
+Dari 15 modul di BIG_SCOPE_DETAIL.md: SEMUA sudah diimplementasikan
+minimal versi kerjanya (dinamis, nyambung backend + RBAC + tersimpan
+JSON). Yang masih STATIS/BELUM di atas semuanya level "kosmetik" atau
+"disederhanakan secara sengaja karena scope aslinya opsional/P2" —
+bukan modul inti yang terlewat.
+
+Prioritas kalau mau dibereskan selanjutnya (dari yg paling kepake):
+1. Halaman "Kartu Stok" di Inventory (API sudah ada, tinggal UI)
+2. Halaman Kelola Kategori Finance (API sudah ada, tinggal UI)
+3. Sapaan personalisasi Dashboard
+4. Search bar Topbar dibikin fungsional
+5. Halaman Lupa Password (dummy "hubungi admin")
+6. AI Center / Knowledge Base (di luar scope BIG_SCOPE_DETAIL.md,
+   memang belum pernah direncanakan detail)
